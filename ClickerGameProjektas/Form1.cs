@@ -14,10 +14,8 @@ namespace ClickerGameProjektas
 {
     public partial class Form1 : Form
     {
-        Shop shopForm;
         int coins;
         int easterEgg = 0;
-
         public Form1()
         {
             InitializeComponent();
@@ -25,8 +23,10 @@ namespace ClickerGameProjektas
 
         private void btnMainClick_Click(object sender, EventArgs e)
         {
-            progressLevel.Value++;
             coins += 2;
+            progressLevel.Value++;
+
+            //Checking levels
             if (progressLevel.Value == 5 && lblLevel.Text == "1")
             {
                 progressLevel.Value = 0;
@@ -47,6 +47,76 @@ namespace ClickerGameProjektas
                 lblLevel.Text = "4";
                 progressLevel.Maximum = 20;
             }
+            else if (progressLevel.Value == 20 && lblLevel.Text == "4")
+            {
+                progressLevel.Value = 0;
+                lblLevel.Text = "5";
+                progressLevel.Maximum = 50;
+            }
+            else if (progressLevel.Value == 50 && lblLevel.Text == "5")
+            {
+                progressLevel.Value = 0;
+                lblLevel.Text = "6";
+                progressLevel.Maximum = 80;
+            }
+            else if (progressLevel.Value == 80 && lblLevel.Text == "6")
+            {
+                progressLevel.Value = 0;
+                lblLevel.Text = "7";
+                progressLevel.Maximum = 100;
+            }
+            else if (progressLevel.Value == 100 && lblLevel.Text == "7")
+            {
+                progressLevel.Value = 0;
+                lblLevel.Text = "8";
+                progressLevel.Maximum = 120;
+            }
+            else if (progressLevel.Value == 120 && lblLevel.Text == "8")
+            {
+                progressLevel.Value = 0;
+                lblLevel.Text = "9";
+                progressLevel.Maximum = 140;
+            }
+            else if (progressLevel.Value == 140 && lblLevel.Text == "9")
+            {
+                progressLevel.Value = 0;
+                lblLevel.Text = "10";
+                progressLevel.Maximum = 160;
+            }
+            if (progressLevel.Value == 160 && lblLevel.Text == "10")
+            {
+                btnBossFight.Visible = true;
+                MessageBox.Show("Congratulations, you have reached level 10, which means there is one boss fight left to complete the game!");
+                btnMainClick.Enabled = false;
+            }
+
+
+
+
+
+            //Checking coins
+            if (Coins.coins5 == true)
+            {
+                coins += 3;
+            }
+            if (Coins.coins15 == true)
+            {
+                coins += 10;
+            }
+            if (Coins.coins30 == true)
+            {
+                coins += 20;
+            }
+            if (Coins.coins55 == true)
+            {
+                coins += 20;
+            }
+
+
+
+
+
+
 
         }
 
@@ -56,20 +126,27 @@ namespace ClickerGameProjektas
             progressLevel.Minimum = 0;
             btnShop.Visible = false;
             btnBossFight.Visible = false;
+            Coins.coins5 = false;
         }
 
         private void btnShop_Click(object sender, EventArgs e)
         {
-            shopForm = new Shop(coins);
+            Shop shopForm = new Shop(coins);
             shopForm.ShowDialog();
+            if (CoinsReturn.ifCoinsSpent == true)
+            {
+                coins = CoinsReturn.coins;
+                CoinsReturn.ifCoinsSpent = false;
+            }
+
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            if (easterEgg ==2)
+            if (easterEgg == 2)
             {
-                MessageBox.Show("Congratulations you have found the 'special' cookie! You have been awarded 1000 coins!");
-                coins += 1000;
+                MessageBox.Show("Congratulations you have found the 'special' cookie! You have been awarded 200 coins!");
+                coins += 200;
                 easterEgg = 1;
             }
             else if (easterEgg == 1)
