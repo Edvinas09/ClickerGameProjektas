@@ -111,6 +111,7 @@ namespace ClickerGameProjektas
             this.btnBossFight.TabIndex = 5;
             this.btnBossFight.Text = "Boss fight";
             this.btnBossFight.UseVisualStyleBackColor = true;
+            this.btnBossFight.Click += new System.EventHandler(this.btnBossFight_Click);
             // 
             // pictureBox1
             // 

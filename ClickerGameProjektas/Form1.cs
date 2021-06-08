@@ -51,43 +51,44 @@ namespace ClickerGameProjektas
             {
                 progressLevel.Value = 0;
                 lblLevel.Text = "5";
-                progressLevel.Maximum = 50;
+                progressLevel.Maximum = 40;
             }
-            else if (progressLevel.Value == 50 && lblLevel.Text == "5")
+            else if (progressLevel.Value == 40 && lblLevel.Text == "5")
             {
                 progressLevel.Value = 0;
                 lblLevel.Text = "6";
-                progressLevel.Maximum = 80;
+                progressLevel.Maximum = 60;
             }
-            else if (progressLevel.Value == 80 && lblLevel.Text == "6")
+            else if (progressLevel.Value == 60 && lblLevel.Text == "6")
             {
                 progressLevel.Value = 0;
                 lblLevel.Text = "7";
-                progressLevel.Maximum = 100;
+                progressLevel.Maximum = 80;
             }
-            else if (progressLevel.Value == 100 && lblLevel.Text == "7")
+            else if (progressLevel.Value == 80 && lblLevel.Text == "7")
             {
                 progressLevel.Value = 0;
                 lblLevel.Text = "8";
-                progressLevel.Maximum = 120;
+                progressLevel.Maximum = 100;
             }
-            else if (progressLevel.Value == 120 && lblLevel.Text == "8")
+            else if (progressLevel.Value == 100 && lblLevel.Text == "8")
             {
                 progressLevel.Value = 0;
                 lblLevel.Text = "9";
-                progressLevel.Maximum = 140;
+                progressLevel.Maximum = 120;
             }
-            else if (progressLevel.Value == 140 && lblLevel.Text == "9")
+            else if (progressLevel.Value == 120 && lblLevel.Text == "9")
             {
                 progressLevel.Value = 0;
                 lblLevel.Text = "10";
-                progressLevel.Maximum = 160;
+                progressLevel.Maximum = 140;
             }
-            if (progressLevel.Value == 160 && lblLevel.Text == "10")
+            if (progressLevel.Value == 140 && lblLevel.Text == "10")
             {
                 btnBossFight.Visible = true;
                 MessageBox.Show("Congratulations, you have reached level 10, which means there is one boss fight left to complete the game!");
                 btnMainClick.Enabled = false;
+                BossFightShopOptions.CanYouBuy = true;
             }
 
 
@@ -122,6 +123,7 @@ namespace ClickerGameProjektas
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            BossFightShopOptions.CanYouBuy = false;
             progressLevel.Maximum = 5;
             progressLevel.Minimum = 0;
             btnShop.Visible = false;
@@ -152,6 +154,22 @@ namespace ClickerGameProjektas
             else if (easterEgg == 1)
             {
                 MessageBox.Show("You have already found this easter egg!");
+            }
+        }
+
+        private void btnBossFight_Click(object sender, EventArgs e)
+        {
+            var boss = MessageBox.Show("Are you sure you want to start a Boss fight?", "Are you sure?", MessageBoxButtons.OKCancel);
+            if (boss == DialogResult.OK)
+            {
+                BossFight bossFightForm = new BossFight();
+                bossFightForm.ShowDialog();
+                btnShop.Enabled = false;
+                btnBossFight.Enabled = false;
+            }
+            if (BossFightShopOptions.IsGameFinished == true)
+            {
+                this.Close();
             }
         }
     }

@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BossFight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BossFight.Designer.cs">
+      <DependentUpon>BossFight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BossFightShopOptions.cs" />
     <Compile Include="Coins.cs" />
     <Compile Include="CoinsReturn.cs" />
     <Compile Include="Form1.cs">
@@ -62,6 +69,9 @@
     <Compile Include="Shop.Designer.cs">
       <DependentUpon>Shop.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BossFight.resx">
+      <DependentUpon>BossFight.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

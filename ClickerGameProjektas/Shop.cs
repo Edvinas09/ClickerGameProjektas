@@ -27,6 +27,12 @@ namespace ClickerGameProjektas
             btnBuyDamage.Visible = false;
             btnBuyDamage15.Visible = false;
 
+            if (BossFightShopOptions.CanYouBuy == true)
+            {
+                btnBuyDamage.Visible = true;
+                btnBuyDamage15.Visible = true;
+            }
+
 
             //Check if buttons should be enabled
             if (Coins.coins5 == true)
@@ -78,14 +84,14 @@ namespace ClickerGameProjektas
 
         private void btnCoinsPerClick15_Click(object sender, EventArgs e)
         {
-            cost = 350;
+            cost = 550;
             if (Coins.coins5 != true)
             {
                 MessageBox.Show("You can't buy that yet!");
             }
             else
             {
-            var mbox = MessageBox.Show("Are you sure you want to buy this?", "Clicker shop", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var mbox = MessageBox.Show("Are you sure you want to buy this?", "Clicker shop", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (mbox == DialogResult.Yes)
                 {
                     if (coins1 < cost)
@@ -107,7 +113,7 @@ namespace ClickerGameProjektas
 
         private void btnCoinsPerClick30_Click(object sender, EventArgs e)
         {
-            cost = 850;
+            cost = 1250;
             if (Coins.coins15 != true)
             {
                 MessageBox.Show("You can't buy that yet!");
@@ -136,7 +142,7 @@ namespace ClickerGameProjektas
 
         private void btnCoinsPerClick55_Click(object sender, EventArgs e)
         {
-            cost = 1150;
+            cost = 1750;
             if (Coins.coins30 != true)
             {
                 MessageBox.Show("You can't buy that yet!");
@@ -162,6 +168,52 @@ namespace ClickerGameProjektas
                 }
             }
         }
-    }
 
+        private void btnBuyDamage_Click(object sender, EventArgs e)
+        {
+            cost = 5000;
+
+            var mbox = MessageBox.Show("Are you sure you want to buy this?", "Clicker shop", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (mbox == DialogResult.Yes)
+            {
+                if (coins1 < cost)
+                {
+                    MessageBox.Show("You don't have enough coins!");
+                }
+                else
+                {
+                    coins1 -= cost;
+                    lblCoins.Text = coins1.ToString();
+                    btnBuyDamage.Enabled = false;
+                    CoinsReturn.coins = coins1;
+                    CoinsReturn.ifCoinsSpent = true;
+                    BossFightShopOptions.Is5DamageBought = true;
+                }
+            }
+        }
+
+        private void btnBuyDamage15_Click(object sender, EventArgs e)
+        {
+            cost = 9000;
+
+            var mbox = MessageBox.Show("Are you sure you want to buy this?", "Clicker shop", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (mbox == DialogResult.Yes)
+            {
+                if (coins1 < cost)
+                {
+                    MessageBox.Show("You don't have enough coins!");
+                }
+                else
+                {
+                    coins1 -= cost;
+                    lblCoins.Text = coins1.ToString();
+                    btnBuyDamage15.Enabled = false;
+                    CoinsReturn.coins = coins1;
+                    CoinsReturn.ifCoinsSpent = true;
+                    BossFightShopOptions.Is15DamageBought = true;
+                }
+            }
+        }
+    }
 }
+
