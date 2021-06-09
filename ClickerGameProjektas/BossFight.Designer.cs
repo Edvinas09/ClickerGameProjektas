@@ -34,8 +34,8 @@ namespace ClickerGameProjektas
             this.progressYourHp = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDoDamage = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pictureDoDamage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDoDamage)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBossHp
@@ -71,24 +71,23 @@ namespace ClickerGameProjektas
             this.label2.TabIndex = 3;
             this.label2.Text = "Your Hp:";
             // 
-            // btnDoDamage
+            // pictureDoDamage
             // 
-            this.btnDoDamage.Location = new System.Drawing.Point(596, 79);
-            this.btnDoDamage.Name = "btnDoDamage";
-            this.btnDoDamage.Size = new System.Drawing.Size(131, 39);
-            this.btnDoDamage.TabIndex = 4;
-            this.btnDoDamage.Text = "Do damage";
-            this.btnDoDamage.UseVisualStyleBackColor = true;
-            this.btnDoDamage.Click += new System.EventHandler(this.btnDoDamage_Click);
+            this.pictureDoDamage.Image = global::ClickerGameProjektas.Properties.Resources.doDamage;
+            this.pictureDoDamage.Location = new System.Drawing.Point(635, 68);
+            this.pictureDoDamage.Name = "pictureDoDamage";
+            this.pictureDoDamage.Size = new System.Drawing.Size(100, 50);
+            this.pictureDoDamage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureDoDamage.TabIndex = 22;
+            this.pictureDoDamage.TabStop = false;
+            this.pictureDoDamage.Click += new System.EventHandler(this.pictureDoDamage_Click);
             // 
-            // backgroundWorker1
-            //             // 
             // BossFight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 130);
-            this.Controls.Add(this.btnDoDamage);
+            this.Controls.Add(this.pictureDoDamage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressYourHp);
@@ -97,6 +96,7 @@ namespace ClickerGameProjektas
             this.Name = "BossFight";
             this.Text = "BossFight";
             this.Load += new System.EventHandler(this.BossFight_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDoDamage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,7 +108,6 @@ namespace ClickerGameProjektas
         private System.Windows.Forms.ProgressBar progressYourHp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDoDamage;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.PictureBox pictureDoDamage;
     }
 }

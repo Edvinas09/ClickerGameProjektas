@@ -21,7 +21,7 @@ namespace ClickerGameProjektas
             InitializeComponent();
         }
 
-        private void btnMainClick_Click(object sender, EventArgs e)
+        private void pictureClick_Click(object sender, EventArgs e)
         {
             coins += 2;
             progressLevel.Value++;
@@ -38,7 +38,7 @@ namespace ClickerGameProjektas
                 progressLevel.Value = 0;
                 lblLevel.Text = "3";
                 progressLevel.Maximum = 15;
-                btnShop.Visible = true;
+                pictureShop.Visible = true;
                 easterEgg = 2;
             }
             else if (progressLevel.Value == 15 && lblLevel.Text == "3")
@@ -85,15 +85,11 @@ namespace ClickerGameProjektas
             }
             if (progressLevel.Value == 140 && lblLevel.Text == "10")
             {
-                btnBossFight.Visible = true;
+                pictureBoss.Visible = true;
                 MessageBox.Show("Congratulations, you have reached level 10, which means there is one boss fight left to complete the game!");
-                btnMainClick.Enabled = false;
+                pictureClick.Enabled = false;
                 BossFightShopOptions.CanYouBuy = true;
             }
-
-
-
-
 
             //Checking coins
             if (Coins.coins5 == true)
@@ -112,13 +108,6 @@ namespace ClickerGameProjektas
             {
                 coins += 20;
             }
-
-
-
-
-
-
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -126,23 +115,10 @@ namespace ClickerGameProjektas
             BossFightShopOptions.CanYouBuy = false;
             progressLevel.Maximum = 5;
             progressLevel.Minimum = 0;
-            btnShop.Visible = false;
-            btnBossFight.Visible = false;
+            pictureShop.Visible = false;
+            pictureBoss.Visible = false;
             Coins.coins5 = false;
         }
-
-        private void btnShop_Click(object sender, EventArgs e)
-        {
-            Shop shopForm = new Shop(coins);
-            shopForm.ShowDialog();
-            if (CoinsReturn.ifCoinsSpent == true)
-            {
-                coins = CoinsReturn.coins;
-                CoinsReturn.ifCoinsSpent = false;
-            }
-
-        }
-
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
             if (easterEgg == 2)
@@ -156,16 +132,26 @@ namespace ClickerGameProjektas
                 MessageBox.Show("You have already found this easter egg!");
             }
         }
+        private void pictureShop_Click(object sender, EventArgs e)
+        {
+            Shop shopForm = new Shop(coins);
+            shopForm.ShowDialog();
+            if (CoinsReturn.ifCoinsSpent == true)
+            {
+                coins = CoinsReturn.coins;
+                CoinsReturn.ifCoinsSpent = false;
+            }
+        }
 
-        private void btnBossFight_Click(object sender, EventArgs e)
+        private void pictureBoss_Click(object sender, EventArgs e)
         {
             var boss = MessageBox.Show("Are you sure you want to start a Boss fight?", "Are you sure?", MessageBoxButtons.OKCancel);
             if (boss == DialogResult.OK)
             {
                 BossFight bossFightForm = new BossFight();
                 bossFightForm.ShowDialog();
-                btnShop.Enabled = false;
-                btnBossFight.Enabled = false;
+                pictureShop.Enabled = false;
+                pictureBoss.Enabled = false;
             }
             if (BossFightShopOptions.IsGameFinished == true)
             {

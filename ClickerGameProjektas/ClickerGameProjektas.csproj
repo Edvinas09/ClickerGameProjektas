@@ -104,5 +104,20 @@
   <ItemGroup>
     <None Include="Resources\kisspng-cookie-clicker-clicker-heroes-peanut-butter-cookie-5affabf89cffb6.4098322715267051446431.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circuit Construction Kit_ DC screenshot %2811%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\click.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doDamage.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

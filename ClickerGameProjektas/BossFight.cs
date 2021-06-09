@@ -32,33 +32,13 @@ namespace ClickerGameProjektas
             th.Start();
         }
 
-        private void btnDoDamage_Click(object sender, EventArgs e)
-        {
-            if (BossFightShopOptions.Is5DamageBought == true)
-            {
-                progressBossHp.Value -= 5;
-            }
-            else if (BossFightShopOptions.Is15DamageBought == true)
-            {
-                progressBossHp.Value -= 15;
-            }
-            else
-            {
-                progressBossHp.Value -= 2;
-            }
-            if (progressBossHp.Value == 0)
-            {
-                btnDoDamage.Enabled = false;
-            }
-        }
-
         void GenerateNumbers()
         {
             Random rnd = new Random();
             Random rnd2 = new Random();
             for (int i = 0; i < 1000; i++)
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(2000);
                 int randomNum = rnd.Next(21);
                 int randomNum2 = rnd2.Next(21);
 
@@ -98,5 +78,24 @@ namespace ClickerGameProjektas
             }
         }
 
+        private void pictureDoDamage_Click(object sender, EventArgs e)
+        {
+            if (BossFightShopOptions.Is5DamageBought == true)
+            {
+                progressBossHp.Value -= 5;
+            }
+            else if (BossFightShopOptions.Is15DamageBought == true)
+            {
+                progressBossHp.Value -= 15;
+            }
+            else
+            {
+                progressBossHp.Value -= 2;
+            }
+            if (progressBossHp.Value == 0)
+            {
+                pictureDoDamage.Enabled = false;
+            }
+        }
     }
 }
